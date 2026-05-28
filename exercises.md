@@ -26,10 +26,10 @@ Bạn sẽ thấy output so sánh phản hồi của GPT-4o và GPT-4o-mini.
 Gọi `call_openai` với các giá trị temperature 0.0, 0.5, 1.0 và 1.5 sử dụng prompt **"Hãy kể cho tôi một sự thật thú vị về Việt Nam."**
 
 **Bạn nhận thấy quy luật gì qua bốn phản hồi?** (2–3 câu)
-> *Câu trả lời của bạn*
+> Khi temperature thấp (0.0), câu trả lời có xu hướng rất chính xác, ngắn gọn và ít sáng tạo, nội dung ổn định hơn mỗi lần gọi. Khi temperature tăng lên 0.5 và 1.0, câu trả lời trở nên phong phú hơn, có thêm chi tiết và biểu đạt đa dạng hơn. Ở 1.5, mô hình dễ xuất hiện các câu sáng tạo hơn nhưng cũng kém dự đoán hơn và đôi khi có thể thêm thông tin không cần thiết.
 
 **Bạn sẽ đặt temperature bao nhiêu cho chatbot hỗ trợ khách hàng, và tại sao?**
-> *Câu trả lời của bạn*
+> Tôi sẽ đặt temperature vào khoảng 0.2–0.5 để ưu tiên tính nhất quán và chính xác. Với chatbot hỗ trợ khách hàng, câu trả lời ổn định và ít bị sáng tạo quá mức quan trọng hơn, giúp giảm nguy cơ sai lệch thông tin.
 
 ---
 
@@ -37,16 +37,16 @@ Gọi `call_openai` với các giá trị temperature 0.0, 0.5, 1.0 và 1.5 sử
 Xem xét kịch bản: 10.000 người dùng hoạt động mỗi ngày, mỗi người thực hiện 3 lần gọi API, mỗi lần trung bình ~350 token.
 
 **Ước tính xem GPT-4o đắt hơn GPT-4o-mini bao nhiêu lần cho workload này:**
-> *Câu trả lời của bạn*
+> Với tổng số token 10.000 × 3 × 350 = 10.500.000 token mỗi ngày, chi phí GPT-4o là khoảng 10.500 × 0.01 = 105 USD, còn GPT-4o-mini là khoảng 10.500 × 0.0006 = 6.3 USD. Như vậy GPT-4o đắt hơn khoảng 16,7 lần so với GPT-4o-mini.
 
 **Mô tả một trường hợp mà chi phí cao hơn của GPT-4o là xứng đáng, và một trường hợp GPT-4o-mini là lựa chọn tốt hơn:**
-> *Câu trả lời của bạn*
+> GPT-4o xứng đáng khi ứng dụng cần câu trả lời chính xác, lý luận sâu, tổng hợp dữ liệu phức tạp hoặc tạo nội dung chất lượng cao, ví dụ như tư vấn kỹ thuật, phân tích pháp lý, hoặc viết nội dung chuyên sâu. GPT-4o-mini phù hợp với các ứng dụng chat đơn giản, hỗ trợ khách hàng cơ bản, tìm kiếm thông tin nhanh hoặc xử lý khối lượng lớn khi chi phí là yếu tố quan trọng.
 
 ---
 
 ### Bài tập 2.3 — Trải Nghiệm Người Dùng với Streaming
 **Streaming quan trọng nhất trong trường hợp nào, và khi nào thì non-streaming lại phù hợp hơn?** (1 đoạn văn)
-> *Câu trả lời của bạn*
+> Streaming quan trọng nhất khi người dùng tương tác trực tiếp qua chat hoặc voice assistant và cần phản hồi nhanh, vì nó tạo cảm giác phản hồi tức thì và giảm thời gian chờ. Non-streaming phù hợp hơn với các tác vụ offline, xử lý batch hoặc khi cần thu thập toàn bộ kết quả trước khi hiển thị, ví dụ như báo cáo tự động, phân tích dữ liệu, hoặc khi tốc độ hiển thị từng token không phải là ưu tiên.
 
 
 ## Danh Sách Kiểm Tra Nộp Bài
