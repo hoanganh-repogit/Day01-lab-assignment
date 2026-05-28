@@ -1,7 +1,7 @@
 # Báo cáo kiểm thử
 
 ## Tổng quan
-- Tên: `Hoàng Văn Anh1`
+- Tên: `Hoàng Văn Anh`
 - Mã học viên: `2A202600762`
 - Dự án: `Day01-lab-assignment`
 - File chính: `template.py`
