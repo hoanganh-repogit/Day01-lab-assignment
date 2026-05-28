@@ -10,6 +10,7 @@ All external API calls are mocked — no real API keys required.
 
 import importlib.util
 import sys
+import types
 import unittest
 from pathlib import Path
 from unittest.mock import MagicMock, patch
@@ -22,6 +23,19 @@ def _load(path: Path, unique_name: str):
     spec = importlib.util.spec_from_file_location(unique_name, str(path))
     mod = importlib.util.module_from_spec(spec)
     sys.modules[unique_name] = mod
+
+    # Ensure the top-level package exists for hyphenated folder names
+    if "." in unique_name:
+        package_name, module_name = unique_name.split(".", 1)
+        if package_name not in sys.modules:
+            pkg = types.ModuleType(package_name)
+            pkg.__name__ = package_name
+            pkg.__path__ = []
+            sys.modules[package_name] = pkg
+        else:
+            pkg = sys.modules[package_name]
+        setattr(pkg, module_name, mod)
+
     spec.loader.exec_module(mod)
     return mod
 
