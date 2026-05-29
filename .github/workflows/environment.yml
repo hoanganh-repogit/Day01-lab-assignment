@@ -1,0 +1,10 @@
+name: base
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - openai>=1.30.0
+    - pytest>=8.0.0
